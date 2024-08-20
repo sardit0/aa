@@ -18,7 +18,7 @@ class HomeView extends GetView<HomeController> {
         children: [
           const Center(
             child: Text(
-              'HomeView is working',
+              'Which page do you want to go to?',
               style: TextStyle(fontSize: 20),
             ),
           ),
@@ -26,7 +26,13 @@ class HomeView extends GetView<HomeController> {
             onPressed: () {
               Get.toNamed('/counter');
             },
-            child: Text('Pindah Ke Counter Page'),
+            child: Text('Counter Page'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Get.toNamed('/biodata');
+            },
+            child: Text('Biodata Page'),
           )
         ],
       ),
