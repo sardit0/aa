@@ -1,13 +1,12 @@
+
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
 import '../controllers/register_controller.dart';
 
 class RegisterView extends GetView<RegisterController> {
-  const RegisterView({super.key});
   @override
   Widget build(BuildContext context) {
+    // RegisterController c = Get.put(RegisterController());
     return Scaffold(
       appBar: AppBar(title: Text('Register')),
       body: Padding(
@@ -29,18 +28,17 @@ class RegisterView extends GetView<RegisterController> {
             ),
             SizedBox(height: 20),
             Obx(() => controller.isLoading.value
-            ? CircularProgressIndicator()
-            : ElevatedButton(
-              onPressed: controller.register,
-              child: Text('Register'),
-              )),
-              SizedBox(height: 20),
-              TextButton(
-                onPressed: () {
-                  Get.toNamed('/login');
-                },
-                child: Text('Already have an account? Login'),
-              )
+                ? CircularProgressIndicator()
+                : ElevatedButton(
+                    onPressed: controller.register,
+                    child: Text('Register'),
+                  )),
+            TextButton(
+              onPressed: () {
+                Get.toNamed('/login');
+              },
+              child: Text('Already have an account? Login'),
+            ),
           ],
         ),
       ),

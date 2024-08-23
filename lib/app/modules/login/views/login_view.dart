@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
-  const LoginView({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,18 +22,17 @@ class LoginView extends GetView<LoginController> {
             ),
             SizedBox(height: 20),
             Obx(() => controller.isLoading.value
-            ? CircularProgressIndicator()
-            : ElevatedButton(
-              onPressed: controller.login,
-              child: Text('Login'),
-              )),
-              SizedBox(height: 20),
-              TextButton(
-                onPressed: () {
-                  Get.toNamed('/register');
-                },
-                child: Text('Already have an account? Login'),
-              )
+                ? CircularProgressIndicator()
+                : ElevatedButton(
+                    onPressed: controller.login,
+                    child: Text('Login'),
+                  )),
+            TextButton(
+              onPressed: () {
+                Get.toNamed('/register');
+              },
+              child: Text('Don\'t have an account? Register'),
+            ),
           ],
         ),
       ),

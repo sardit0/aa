@@ -23,11 +23,11 @@ class RegisterController extends GetxController {
     );
 
     if (response.statusCode == 201) {
-      Get.snackbar('Success', 'Registration Successfully',
+      Get.snackbar('Success', 'Registration successful',
           snackPosition: SnackPosition.BOTTOM);
       Get.offAllNamed('/login');
     } else {
-      Get.snackbar('Error', 'Registration failed, please try again',
+      Get.snackbar('Error', 'Registration failed. Please try again.',
           snackPosition: SnackPosition.BOTTOM);
     }
     isLoading(false);

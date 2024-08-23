@@ -1,9 +1,9 @@
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-
 import '../../../utils/api.dart';
 
 class LoginController extends GetxController {
@@ -22,14 +22,15 @@ class LoginController extends GetxController {
         'password': passwordController.text,
       },
     );
+
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
-      final token = data['acces_token'];
+      final token = data['access_token'];
 
-      box.write('acces_token', token);
-      Get.offAllNamed('/bottom_menu');
+      box.write('access_token', token);
+      Get.offAllNamed('/bottom-menu');
     } else {
-      Get.snackbar('Error', 'Login Failed. please check your credenial',
+      Get.snackbar('Error', 'Login failed. Please check your credentials.',
           snackPosition: SnackPosition.BOTTOM);
     }
     isLoading(false);

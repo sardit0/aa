@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -18,13 +19,13 @@ class ProfileController extends GetxController {
   }
 
   void logout() {
-    box.remove('acces_token');
+    box.remove('access_token');
     Get.offAllNamed('/login');
   }
 
   Future<void> fetchUserProfile() async {
     isLoading(true);
-    final token = box.read('acces_token');
+    final token = box.read('access_token');
     final url = Uri.parse('${BaseUrl.api}/user/profile');
     final response = await http.get(
       url,
